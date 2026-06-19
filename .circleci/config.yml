@@ -1,0 +1,61 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@5.0
+
+parameters:
+  windows_release_artifacts:
+    type: boolean
+    default: false
+
+jobs:
+  windows-release:
+    executor:
+      name: win/default
+      size: medium
+    steps:
+      - checkout
+      - run:
+          name: Install Rust
+          shell: powershell.exe
+          command: |
+            Invoke-WebRequest -Uri "https://win.rustup.rs/x86_64" -OutFile "rustup-init.exe"
+            .\rustup-init.exe -y --default-toolchain 1.94.0 --profile minimal
+      - run:
+          name: Build Windows artifact for dx-py-package-manager
+          shell: powershell.exe
+          command: |
+            $env:Path = "$env:USERPROFILE\.cargo\bin;$env:Path"
+            $ErrorActionPreference = "Stop"
+            cd package-manager
+            cargo build --locked --release -p uv --bin uv
+            New-Item -ItemType Directory -Path dist -Force | Out-Null
+            Copy-Item -LiteralPath "target\release\uv.exe" -Destination "dist\dx-py-package-manager-windows-x86_64.exe"
+            $shortSha = $env:CIRCLE_SHA1.Substring(0, 12)
+            $archive = "dx-py-package-manager-windows-x86_64-$shortSha.zip"
+            Compress-Archive -Path "dist\*" -DestinationPath "dist\$archive" -Force
+            $hash = Get-FileHash -Algorithm SHA256 -LiteralPath "dist\$archive"
+            "$($hash.Hash.ToLowerInvariant())  $archive" | Set-Content -LiteralPath "dist\SHA256SUMS.txt" -Encoding ASCII
+      - store_artifacts:
+          path: dist
+      - run:
+          name: Upload to GitHub release essence-dx/py
+          shell: powershell.exe
+          command: |
+            choco install gh -y --no-progress --limit-output
+            $tag = "windows"
+            gh release create $tag --repo essence-dx/py --title "Windows build" --notes "CI Windows artifact" --target $env:CIRCLE_SHA1 2>$null || $true
+            gh release upload $tag dist\dx-py-package-manager-windows-x86_64-*.zip --repo essence-dx/py --clobber
+      # Note: for dx-py (cpython), a full Python Windows build is heavy; for now the package-manager is bundled. cpython can be added later or use prebuilt.
+
+workflows:
+  windows-release:
+    when: << pipeline.parameters.windows_release_artifacts >>
+    jobs:
+      - windows-release
+
+# Linux and macOS jobs commented out for now (enable later)
+# jobs: ...
+# workflows:
+#   linux-release: ...
+#   macos-release: ...

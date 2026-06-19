@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "workspace": "dx-py",
+  "root": "G:\\Dx\\py",
+  "branchModel": {
+    "release": "main",
+    "integration": "dev"
+  },
+  "githubActions": {
+    "state": "not-configured",
+    "policy": "Keep Actions disabled until a dedicated Python workspace CI plan is approved."
+  },
+  "worktreeMetadata": {
+    "pointerState": "repaired",
+    "repairedAt": "2026-06-10",
+    "oldRoot": "G:\\Dx\\python",
+    "currentRoot": "G:\\Dx\\py",
+    "note": "Both cpython/.git/worktrees/*/gitdir and lane-local .git pointer files use G:/Dx/py paths.",
+    "sourcePreservationState": "lane-branches-pushed",
+    "lineEndingPolicy": "CPython local core.autocrlf is false to keep .py, .c, .h, and .md files on LF line endings."
+  },
+  "embeddedRepositories": [
+    {
+      "path": "cpython",
+      "type": "git-repository",
+      "role": "DX CPython fork workspace",
+      "branch": "lane/deoptimization",
+      "head": "e4439f34ec0cfa461e5c0697e878854e5b62c45a",
+      "remotes": {
+        "origin": "https://github.com/millercarla211-ctrl/cpython.git",
+        "upstream": "https://github.com/python/cpython.git"
+      },
+      "statusAtImport": "clean"
+    },
+    {
+      "path": "package-manager",
+      "type": "git-repository",
+      "role": "uv package-manager research workspace",
+      "branch": "dev",
+      "head": "314ec25c0eef73ab61e1e620f82adcbb4207699f",
+      "remotes": {
+        "origin": "https://github.com/astral-sh/uv.git"
+      },
+      "statusAtImport": "clean"
+    }
+  ],
+  "worktreeCheckouts": [
+    {
+      "path": "cpython-lane5",
+      "recordedBranch": "codex/lane-5-types-containers",
+      "recordedHead": "9616371b045ec29c6f22092324c9121d842727aa",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "055d2a548021c21cbd9eb0d7f13b51562406cdd8",
+      "upstream": "origin/codex/lane-5-types-containers",
+      "preservationCommit": "055d2a548021c21cbd9eb0d7f13b51562406cdd8"
+    },
+    {
+      "path": "cpython-upstream-main",
+      "recordedBranch": "detached",
+      "recordedHead": "1c7011d8feb8fa9a68775784c9039e1d57ce6569",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "1c7011d8feb8fa9a68775784c9039e1d57ce6569",
+      "upstream": null
+    },
+    {
+      "path": "worktrees/worker-lane-1-executor-formation",
+      "recordedBranch": "worker/lane-1-executor-formation",
+      "recordedHead": "d1967a4f7defb32ea975585543755ff0711e607e",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "59a8ec7e3aa4a3a1203c1cc2cbbdaa85597dd78f",
+      "upstream": "origin/worker/lane-1-executor-formation",
+      "preservationCommit": "59a8ec7e3aa4a3a1203c1cc2cbbdaa85597dd78f"
+    },
+    {
+      "path": "worktrees/worker-lane-2-simple-return-backend",
+      "recordedBranch": "worker/lane-2-simple-return-backend",
+      "recordedHead": "d1967a4f7defb32ea975585543755ff0711e607e",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "8c195b1efcf177f2f5e7d8b0c2c1799c6f73dee5",
+      "upstream": "origin/worker/lane-2-simple-return-backend",
+      "preservationCommit": "8c195b1efcf177f2f5e7d8b0c2c1799c6f73dee5"
+    },
+    {
+      "path": "worktrees/worker-lane-3-planner-eligibility",
+      "recordedBranch": "worker/lane-3-planner-eligibility",
+      "recordedHead": "d1967a4f7defb32ea975585543755ff0711e607e",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "f203a21b358b2fb03960d71cb1ec79ebe7883467",
+      "upstream": "origin/worker/lane-3-planner-eligibility",
+      "preservationCommit": "f203a21b358b2fb03960d71cb1ec79ebe7883467"
+    },
+    {
+      "path": "worktrees/worker-lane-4-deopt-stack-safety",
+      "recordedBranch": "worker/lane-4-deopt-stack-safety",
+      "recordedHead": "d1967a4f7defb32ea975585543755ff0711e607e",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "118c44be5a74461b6955731603d1f60bef027fc2",
+      "upstream": "origin/worker/lane-4-deopt-stack-safety",
+      "preservationCommit": "118c44be5a74461b6955731603d1f60bef027fc2"
+    },
+    {
+      "path": "worktrees/worker-lane-5-range-loop-runtime",
+      "recordedBranch": "worker/lane-5-range-loop-runtime",
+      "recordedHead": "d1967a4f7defb32ea975585543755ff0711e607e",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "530e08facf2480efe2c38a4cb18f8e3462b2f9c8",
+      "upstream": "origin/worker/lane-5-range-loop-runtime",
+      "preservationCommit": "530e08facf2480efe2c38a4cb18f8e3462b2f9c8"
+    },
+    {
+      "path": "worktrees/worker-lane-6-range-ir",
+      "recordedBranch": "worker/lane-6-range-ir",
+      "recordedHead": "d1967a4f7defb32ea975585543755ff0711e607e",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "848be81f731d67a044b2a2bb9f91da02c586677a",
+      "upstream": "origin/worker/lane-6-range-ir",
+      "preservationCommit": "848be81f731d67a044b2a2bb9f91da02c586677a"
+    },
+    {
+      "path": "worktrees/worker-lane-8-semantic-boundaries",
+      "recordedBranch": "worker/lane-8-semantic-boundaries",
+      "recordedHead": "d1967a4f7defb32ea975585543755ff0711e607e",
+      "statusAtImport": "stale-gitdir-pointer",
+      "metadataStatus": "repaired",
+      "workingTreeState": "clean",
+      "dirtyFiles": [],
+      "currentHead": "123847af354c00c51eb5020c225275f3bcd72cc1",
+      "upstream": "origin/worker/lane-8-semantic-boundaries",
+      "preservationCommit": "123847af354c00c51eb5020c225275f3bcd72cc1"
+    }
+  ],
+  "trackedWorkspaceContent": [
+    "README.md",
+    "benchmarks/compare_python_speed.py",
+    "artifacts/plans/**/*.md",
+    "artifacts/receipts/**/*.md",
+    "artifacts/reports/**/*.md"
+  ],
+  "excludedPayloads": [
+    "official-python",
+    "artifacts/official*",
+    "artifacts/pycache",
+    "artifacts/temp",
+    "benchmarks/runs",
+    "embedded repository build outputs",
+    "CPython externals and LLVM tarballs"
+  ]
+}
