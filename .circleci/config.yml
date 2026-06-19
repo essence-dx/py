@@ -22,17 +22,26 @@ jobs:
             Invoke-WebRequest -Uri "https://win.rustup.rs/x86_64" -OutFile "rustup-init.exe"
             .\rustup-init.exe -y --default-toolchain 1.94.0 --profile minimal
       - run:
-          name: Build Windows artifact for dx-py-package-manager
+          name: Build Windows artifact for dx-py-package-manager and cpython
           shell: powershell.exe
           command: |
             $env:Path = "$env:USERPROFILE\.cargo\bin;$env:Path"
             $ErrorActionPreference = "Stop"
-            cd package-manager
-            cargo build --locked --release -p uv --bin uv
             New-Item -ItemType Directory -Path dist -Force | Out-Null
-            Copy-Item -LiteralPath "target\release\uv.exe" -Destination "dist\dx-py-package-manager-windows-x86_64.exe"
+            
+            cd package-manager
+            cargo build --release -p dx-py-package-manager
+            Copy-Item -LiteralPath "target\release\dx-py-package-manager.exe" -Destination "..\dist\dx-py-package-manager.exe" -Force
+            cd ..
+            
+            cd cpython\PCbuild
+            cmd.exe /c build.bat -p x64
+            Copy-Item -Path "amd64\*.exe" -Destination "..\..\dist\" -Force
+            Copy-Item -Path "amd64\*.dll" -Destination "..\..\dist\" -Force
+            cd ..\..
+            
             $shortSha = $env:CIRCLE_SHA1.Substring(0, 12)
-            $archive = "dx-py-package-manager-windows-x86_64-$shortSha.zip"
+            $archive = "dx-py-windows-x86_64-$shortSha.zip"
             Compress-Archive -Path "dist\*" -DestinationPath "dist\$archive" -Force
             $hash = Get-FileHash -Algorithm SHA256 -LiteralPath "dist\$archive"
             "$($hash.Hash.ToLowerInvariant())  $archive" | Set-Content -LiteralPath "dist\SHA256SUMS.txt" -Encoding ASCII
@@ -45,7 +54,7 @@ jobs:
             choco install gh -y --no-progress --limit-output
             $tag = "windows"
             gh release create $tag --repo essence-dx/py --title "Windows build" --notes "CI Windows artifact" --target $env:CIRCLE_SHA1 2>$null || $true
-            gh release upload $tag dist\dx-py-package-manager-windows-x86_64-*.zip --repo essence-dx/py --clobber
+            gh release upload $tag dist\dx-py-windows-x86_64-*.zip --repo essence-dx/py --clobber
       # Note: for dx-py (cpython), a full Python Windows build is heavy; for now the package-manager is bundled. cpython can be added later or use prebuilt.
 
 workflows:
