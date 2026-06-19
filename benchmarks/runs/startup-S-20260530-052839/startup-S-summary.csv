@@ -1,0 +1,5 @@
+"scenario","median_seconds","min_seconds"
+"official-S","0.0363198","0.0306741"
+"local-S","0.02661945","0.0212714"
+"official-S-jit","0.02848905","0.0252977"
+"local-S-jit","0.02109805","0.0196186"

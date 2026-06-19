@@ -1,0 +1,72 @@
+{
+  "executable": "G:\\Dx\\python\\official-python\\python-3.14.5-embed-amd64\\python.exe",
+  "jit": {
+    "has_jit": true,
+    "jit_available": true,
+    "jit_enabled": true
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tasks": {
+    "class_attr": {
+      "checksum": "57602640000",
+      "durations_seconds": [
+        0.19527479999669595,
+        0.1820404999962193,
+        0.2632875999988755
+      ],
+      "median_seconds": 0.19527479999669595,
+      "min_seconds": 0.1820404999962193
+    },
+    "decimal_math": {
+      "checksum": "281389",
+      "durations_seconds": [
+        0.12748650000139605,
+        0.20315860000118846,
+        0.16886289999820292
+      ],
+      "median_seconds": 0.16886289999820292,
+      "min_seconds": 0.12748650000139605
+    },
+    "function_calls": {
+      "checksum": "3521294468",
+      "durations_seconds": [
+        0.22762279999733437,
+        0.2800176999953692,
+        0.23370240000076592
+      ],
+      "median_seconds": 0.23370240000076592,
+      "min_seconds": 0.22762279999733437
+    },
+    "int_loop": {
+      "checksum": "8999977",
+      "durations_seconds": [
+        0.1568381999968551,
+        0.15909709999687038,
+        0.15893909999431344
+      ],
+      "median_seconds": 0.15893909999431344,
+      "min_seconds": 0.1568381999968551
+    },
+    "json_regex": {
+      "checksum": "739574",
+      "durations_seconds": [
+        0.031276099995011464,
+        0.031698700004199054,
+        0.03422880000289297
+      ],
+      "median_seconds": 0.031698700004199054,
+      "min_seconds": 0.031276099995011464
+    },
+    "list_dict": {
+      "checksum": "366580725",
+      "durations_seconds": [
+        0.06904330000543268,
+        0.06685459999425802,
+        0.06400109999958659
+      ],
+      "median_seconds": 0.06685459999425802,
+      "min_seconds": 0.06400109999958659
+    }
+  },
+  "version": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]"
+}

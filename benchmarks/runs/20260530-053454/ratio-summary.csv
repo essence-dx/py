@@ -1,0 +1,8 @@
+"metric","local_default_vs_official_default_pct","local_jit_vs_official_jit_pct","native_vs_official_jit_pct","native_vs_local_jit_pct","native_vs_official_default_pct"
+"startup","32.515","-5.541","46.959","55.579","38.408"
+"int_loop","162.655","-3.495","3.281","7.021","-6.865"
+"function_calls","87.68","164.78","132.846","-12.061","71.301"
+"list_dict","1.986","0.82","24.868","23.852","-19.089"
+"json_regex","-27.3","12.762","12.015","-0.662","-36.068"
+"decimal_math","-3.042","-11.769","-9.076","3.052","-11.158"
+"class_attr","81.605","127.43","112.03","-6.771","83.448"

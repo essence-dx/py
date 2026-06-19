@@ -1,34 +1,6 @@
-# Embedded repositories and CPython worktrees keep their own history.
-/cpython/
-/cpython-lane5/
-/cpython-upstream-main/
-/package-manager/
-/worktrees/
-
-# Official binary/runtime distributions and generated artifacts.
-/official-python/
-/artifacts/**
-!/artifacts/
-!/artifacts/plans/
-!/artifacts/plans/**/*.md
-!/artifacts/receipts/
-!/artifacts/receipts/**/*.md
-!/artifacts/reports/
-!/artifacts/reports/**/*.md
-
-# Benchmark output is reproducible; keep benchmark source only.
-/benchmarks/runs/
-/benchmarks/__pycache__/
-
-# Python caches and virtual environments.
-**/__pycache__/
-**/*.py[cod]
-**/.pytest_cache/
-**/.mypy_cache/
-**/.ruff_cache/
-**/.cache/
-**/.venv/
-**/venv/
+# Trash folders
+/trash
+/artifacts
 
 # Build outputs and package-manager artifacts.
 **/target/
