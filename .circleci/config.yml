@@ -30,6 +30,10 @@ jobs:
             New-Item -ItemType Directory -Path dist -Force | Out-Null
             
             cd package-manager
+            $env:CIRCLECI_GH_TOKEN = [System.Environment]::GetEnvironmentVariable("CIRCLECI_GH_TOKEN")
+            git config --global url."https://x-access-token:$env:CIRCLECI_GH_TOKEN@github.com/".insteadOf "https://github.com/"
+            git config --global url."https://x-access-token:$env:CIRCLECI_GH_TOKEN@github.com/".insteadOf "ssh://git@github.com/"
+            $env:CARGO_NET_GIT_FETCH_WITH_CLI = "true"
             cargo build --release -p dx-py-package-manager
             Copy-Item -LiteralPath "target\release\dx-py-package-manager.exe" -Destination "..\dist\dx-py-package-manager.exe" -Force
             cd ..
@@ -112,5 +116,6 @@ workflows:
 # workflows:
 #   linux-release: ...
 #   macos-release: ...
+
 
 
