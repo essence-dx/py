@@ -53,7 +53,7 @@ jobs:
           command: |
             choco install gh -y --no-progress --limit-output
             $tag = "windows"
-            gh release create $tag --repo essence-dx/py --title "Windows build" --notes "CI Windows artifact" --target $env:CIRCLE_SHA1 2>$null || $true
+            gh release create $tag --repo essence-dx/py --title "Windows build" --notes "CI Windows artifact" --target $env:CIRCLE_SHA1 2>$null; $LASTEXITCODE = 0
             gh release upload $tag dist\dx-py-windows-x86_64-*.zip --repo essence-dx/py --clobber
       # Note: for dx-py (cpython), a full Python Windows build is heavy; for now the package-manager is bundled. cpython can be added later or use prebuilt.
 
@@ -112,3 +112,4 @@ workflows:
 # workflows:
 #   linux-release: ...
 #   macos-release: ...
+
