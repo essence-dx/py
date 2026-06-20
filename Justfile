@@ -8,7 +8,7 @@ build-package-manager:
     @Copy-Item package-manager\target\release\*.exe G:\Dx\bin\ -Force -ErrorAction SilentlyContinue
 
 build-cpython:
-    Set-Location cpython\PCbuild; cmd.exe /c build.bat -p x64
+    Set-Location cpython\PCbuild; cmd.exe /c build.bat -p x64 | Out-Null
     @New-Item -ItemType Directory -Force -Path G:\Dx\bin | Out-Null
     @Copy-Item cpython\PCbuild\amd64\*.exe G:\Dx\bin\ -Force -ErrorAction SilentlyContinue
     @New-Item -ItemType Directory -Force -Path G:\Dx\bin | Out-Null
